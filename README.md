@@ -1,4 +1,4 @@
-# Faking USA
+# Fake USA
 
 This is a reference for things that don't exist, suitable for all your plausible fiction needs.
 Currently, I've only done place names and radio/TV stations, but there's likely more to come as I get bored.
