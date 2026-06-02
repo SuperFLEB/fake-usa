@@ -31,7 +31,7 @@ listed here.
 
 Along similar lines, I went to the FCC [at this page and all the other sections](https://www.fcc.gov/media/radio/am-query)
 pulled down a list of all the call signs that _do_ exist, then cycled through every iteration of Kxxx and Wxxx to find
-what wasn't in the list. [The script to do it is here](https://github.com/SuperFLEB/call_signs).
+what wasn't in the list. [The script to do it is here](https://github.com/SuperFLEB/call_letters).
 
 In that list, I also ran the list of everything against a word list of two-, three-, and four-letter words, to create
 separate lists of call-signs that spelled out words.
