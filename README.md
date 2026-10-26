@@ -7,6 +7,8 @@ not in the state you selected.
 It also generates fake ZIP codes and fake phone number blocks, for all your making-things-up
 needs.
 
+Try it online: https://superfleb.github.io/fake-usa/
+
 ## Usage
 
 You can use it online by visiting the GitHub Pages site, or build it yourself and run it locally.
