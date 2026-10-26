@@ -26,10 +26,11 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.PACKAGE_REGISTRY_PAT }}
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7
             - name: Install pnpm and Node.js
               uses: pnpm/setup@v2
               with:
+                version: latest
                 runtime: node@24
                 cache: true
             - name: Install dependencies
