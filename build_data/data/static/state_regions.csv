@@ -1,0 +1,276 @@
+fips|region|subregion
+01|Alabama|
+01|Alabama|North
+01|Alabama|Central
+01|Alabama|South
+02|Alaska|
+02|Alaska|Interior
+02|Alaska|Southcentral
+02|Alaska|Southeast
+02|Alaska|Southwest
+04|Arizona|
+04|Arizona|Northern
+04|Arizona|Central
+04|Arizona|Southern
+05|Arkansas|
+05|Arkansas|Northwest
+05|Arkansas|Northeast
+05|Arkansas|Central
+05|Arkansas|South
+06|California|
+06|California|Northern
+06|California|Central
+06|California|Southern
+08|Colorado|
+08|Colorado|Northern
+08|Colorado|Southern
+08|Colorado|Eastern
+08|Colorado|Western
+09|Connecticut|
+09|Connecticut|Northern
+09|Connecticut|Southern
+09|Connecticut|Eastern
+09|Connecticut|Western
+10|Delaware|
+10|Delaware|Northern
+10|Delaware|Southern
+11|District of Columbia|
+12|Florida|
+12|Florida|North
+12|Florida|Central
+12|Florida|South
+12|Florida|Panhandle
+12|Florida|North Central
+13|Georgia|
+13|Georgia|North
+13|Georgia|Central
+13|Georgia|South
+15|Hawaii|
+16|Idaho|
+16|Idaho|North
+16|Idaho|Central
+16|Idaho|Southern
+16|Idaho|Eastern
+16|Idaho|Panhandle
+17|Illinois|
+17|Illinois|Northern
+17|Illinois|Central
+17|Illinois|Southern
+18|Indiana|
+18|Indiana|Northern
+18|Indiana|Central
+18|Indiana|Southern
+18|Indiana|Northwest
+18|Indiana|Southwest
+19|Iowa|
+19|Iowa|Northern
+19|Iowa|Central
+19|Iowa|Southern
+19|Iowa|Eastern
+19|Iowa|Western
+20|Kansas|
+20|Kansas|Eastern
+20|Kansas|Central
+20|Kansas|Western
+20|Kansas|South Central
+21|Kentucky|
+21|Kentucky|Eastern
+21|Kentucky|Central
+21|Kentucky|Western
+21|Kentucky|Northern
+21|Kentucky|Southern
+22|Louisiana|
+22|Louisiana|North
+22|Louisiana|Central
+22|Louisiana|South
+23|Maine|
+23|Maine|Northern
+23|Maine|Central
+23|Maine|Southern
+23|Maine|Downeast
+23|Maine|Western
+24|Maryland|
+24|Maryland|Western
+24|Maryland|Central
+24|Maryland|Southern
+25|Massachusetts|
+25|Massachusetts|Western
+25|Massachusetts|Central
+25|Massachusetts|Eastern
+26|Michigan|
+26|Michigan|West
+26|Michigan|Mid
+26|Michigan|Northern
+26|Michigan|Southeast
+26|Upper Peninsula|
+26|Upper Peninsula|Eastern
+26|Upper Peninsula|Western
+26|Lower Peninsula|
+26|Lower Peninsula|Northern
+27|Minnesota|
+27|Minnesota|Northern
+27|Minnesota|Central
+27|Minnesota|Southern
+27|Minnesota|Western
+28|Mississippi|
+28|Mississippi|North
+28|Mississippi|Central
+28|Mississippi|South
+29|Missouri|
+29|Missouri|Northern
+29|Missouri|Central
+29|Missouri|Southern
+29|Missouri|Eastern
+29|Missouri|Western
+29|Missouri|Southeast
+30|Montana|
+30|Montana|Western
+30|Montana|Central
+30|Montana|Eastern
+31|Nebraska|
+31|Nebraska|Eastern
+31|Nebraska|Central
+31|Nebraska|Western
+31|Nebraska|Panhandle
+32|Nevada|
+32|Nevada|Northern
+32|Nevada|Southern
+32|Nevada|Central
+33|New Hampshire|
+33|New Hampshire|Northern
+33|New Hampshire|Central
+33|New Hampshire|Southern
+34|New Jersey|
+34|New Jersey|Northern
+34|New Jersey|Central
+34|New Jersey|Southern
+35|New Mexico|
+35|New Mexico|Northern
+35|New Mexico|Central
+35|New Mexico|Southern
+35|New Mexico|Eastern
+35|New Mexico|Western
+36|New York|
+36|New York|Upstate
+36|New York|Downstate
+36|New York|Western
+36|New York|Central
+36|New York|Northern
+37|North Carolina|
+37|North Carolina|Western
+37|North Carolina|Central
+37|North Carolina|Eastern
+38|North Dakota|
+38|North Dakota|Eastern
+38|North Dakota|Central
+38|North Dakota|Western
+39|Ohio|
+39|Ohio|Northern
+39|Ohio|Central
+39|Ohio|Southern
+39|Ohio|Northeast
+39|Ohio|Northwest
+39|Ohio|Southeast
+39|Ohio|Southwest
+40|Oklahoma|
+40|Oklahoma|Eastern
+40|Oklahoma|Central
+40|Oklahoma|Western
+40|Oklahoma|Northeast
+40|Oklahoma|Southeast
+40|Oklahoma|Panhandle
+41|Oregon|
+41|Oregon|Western
+41|Oregon|Central
+41|Oregon|Eastern
+41|Oregon|Southern
+42|Pennsylvania|
+42|Pennsylvania|Central
+42|Pennsylvania|Northeast
+42|Pennsylvania|Northwest
+42|Pennsylvania|Southeast
+42|Pennsylvania|Southwest
+44|Rhode Island|
+44|Rhode Island|Northern
+44|Rhode Island|Southern
+45|South Carolina|
+45|South Carolina|Upstate
+45|South Carolina|Midlands
+45|South Carolina|Lowcountry
+46|South Dakota|
+46|South Dakota|Eastern
+46|South Dakota|Central
+46|South Dakota|Western
+47|Tennessee|
+47|Tennessee|East
+47|Tennessee|Middle
+47|Tennessee|West
+48|Texas|
+48|Texas|North
+48|Texas|Central
+48|Texas|South
+48|Texas|East
+48|Texas|West
+48|Texas|Panhandle
+48|Texas|Northeast
+48|Texas|Southeast
+49|Utah|
+49|Utah|Northern
+49|Utah|Central
+49|Utah|Southern
+49|Utah|Eastern
+50|Vermont|
+50|Vermont|Northern
+50|Vermont|Central
+50|Vermont|Southern
+51|Virginia|
+51|Virginia|Northern
+51|Virginia|Central
+51|Virginia|Southern
+51|Virginia|Eastern
+51|Virginia|Western
+51|Virginia|Southwest
+53|Washington|
+53|Washington|Western
+53|Washington|Central
+53|Washington|Eastern
+54|West Virginia|
+54|West Virginia|Northern
+54|West Virginia|Central
+54|West Virginia|Southern
+54|West Virginia|Eastern Panhandle
+54|West Virginia|Northern Panhandle
+55|Wisconsin|
+55|Wisconsin|Northern
+55|Wisconsin|Central
+55|Wisconsin|Southern
+55|Wisconsin|Eastern
+55|Wisconsin|Western
+56|Wyoming|
+56|Wyoming|Northern
+56|Wyoming|Central
+56|Wyoming|Southern
+56|Wyoming|Eastern
+56|Wyoming|Western
+60|American Samoa|
+66|Guam|
+66|Guam|Northern
+66|Guam|Southern
+67|Johnston Atoll|
+69|Northern Mariana Islands|
+71|Midway Islands|
+72|Puerto Rico|
+72|Puerto Rico|Northern
+72|Puerto Rico|Central
+72|Puerto Rico|Southern
+72|Puerto Rico|Eastern
+72|Puerto Rico|Western
+74|U.S. Minor Outlying Islands|
+76|Navassa Island|
+78|U.S. Virgin Islands|
+79|Wake Island|
+81|Baker Island|
+84|Howland Island|
+86|Jarvis Island|
+89|Kingman Reef|
+95|Palmyra Atoll|

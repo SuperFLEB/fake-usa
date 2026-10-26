@@ -1,0 +1,23 @@
+@import './base.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Catamaran:wght@100..900&family=Road+Rage&display=swap');
+
+:root {
+	--main-background: #fed;
+	--main-text: #320;
+
+	--panel-background: #fff;
+	--panel-text: #210;
+}
+
+body {
+	background-color: var(--main-background);
+	background-image: var(--dynamic-background-image);
+	background-position: center;
+	background-repeat: repeat;
+
+	color: var(--main-text);
+
+	font-family: 'Catamaran', sans-serif;
+	line-height: 1.2;
+}
