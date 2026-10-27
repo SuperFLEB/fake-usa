@@ -9,7 +9,7 @@ import type {Place} from "@/typedefs/places";
 import makePlace from "@/util/makePlace.ts";
 
 const {stateFIPSCode} = useConfigProvider();
-const stateName = ref<USStateName|null>(null);
+const stateName = ref<USStateName | null>(null);
 const placeNamesResult = ref<FakePlaceNamesQueryResult[]>([]);
 const db = useDb();
 // const { bucketRef, interface: bucketInterface } = useBucket();
@@ -35,55 +35,62 @@ function pick(placeQueryResult: FakePlaceNamesQueryResult) {
 	}));
 }
 
-watch(stateFIPSCode, refresh, { immediate: true });
+watch(stateFIPSCode, refresh, {immediate: true});
 
 </script>
 
 <template>
 	<ul class="placeList">
-		<li :class="{placeName: true, isSettlement: result.isSettlement, isNotSettlement: !result.isSettlement}" v-for="(result, index) in placeNamesResult" :key="index">
-			<button @click="pick(result)">{{ result.featureName }}, {{ stateName }}</button>
+		<li v-for="(result, index) in placeNamesResult" :key="index">
+			<button :class="{placeName: true, isSettlement: result.isSettlement, isNotSettlement: !result.isSettlement}"
+			        @click="pick(result)">{{ result.featureName }}, {{ stateName }}
+			</button>
 		</li>
-		<li class="keepDriving">
-			<button @click="refresh">Keep Driving</button>
+		<li>
+			<button @click="refresh" class="moreButton">Keep Going</button>
 		</li>
 	</ul>
 </template>
 
 <style scoped>
-	@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
 
-	.placeList {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		gap: 1rem;
+.placeList {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1rem;
 
-		list-style: none;
-		margin: 0 3rem 0 3rem;
-		padding: 0 0 1em 0;
+	list-style: none;
+	margin: 0 3rem 0 3rem;
+	padding: 0 0 1em 0;
 
-		font-family: "Overpass", "Overpass ", sans-serif;
-		font-weight: 800;
-		font-size: 1.25rem;
+	font-family: "Overpass", sans-serif;
+	font-weight: 800;
+	font-size: 1.25rem;
 
-		button {
-			background-color: transparent;
-			border: none;
-			color: inherit;
-			font: inherit;
-			text-transform: inherit;
-			cursor: pointer;
-		}
+	button {
+		background-color: transparent;
+		border: none;
+		color: inherit;
+		font: inherit;
+		text-transform: inherit;
+		cursor: pointer;
+		width: 100%;
 	}
-	.placeName, .keepDriving {
-		flex-basis: 10em;
-		flex-grow: 1;
-		flex-shrink: 0;
+}
 
-		margin: 0;
+.placeList > li {
+	flex-basis: 10em;
+	flex-grow: 1;
+	flex-shrink: 0;
+
+	margin: 0;
+	position: relative;
+
+	> button {
+		height: 100%;
 		padding: 1em;
-		position: relative;
 
 		align-content: center;
 		text-align: center;
@@ -117,10 +124,10 @@ watch(stateFIPSCode, refresh, { immediate: true });
 		}
 	}
 
-	.keepDriving {
+	.moreButton {
 		display: flex;
 		justify-content: center; /* Horizontal centering */
-		align-items: center;     /* Vertical centering */
+		align-items: center; /* Vertical centering */
 
 		background-color: #fa0;
 		border-color: #fa0;
@@ -128,20 +135,17 @@ watch(stateFIPSCode, refresh, { immediate: true });
 		text-transform: uppercase;
 		font-size: 1.25em;
 
-		button {
-			line-height: 1;
-			/* Just a tweak to center given this typeface */
-			margin: 0 0 -0.2em 0;
-			padding: 0;
+		line-height: 1;
+		/* bottom is tweaked to suit this typeface */
+		padding: 1em 0 0.8em 0;
 
-			&::before, &::after {
-				font-size: 1.5em;
-				content: "↑";
-				vertical-align: middle;
-			}
-
-			&::before { margin-right: 0.5em; }
-			&::after  { margin-left: 0.5em;  }
+		&::before, &::after {
+			display: inline-block;
+			font-size: 1.5em;
+			content: "↑";
+			vertical-align: middle;
+			width: 2em;
 		}
 	}
+}
 </style>

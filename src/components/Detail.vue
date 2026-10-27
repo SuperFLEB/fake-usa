@@ -2,6 +2,8 @@
 import type {Place} from "@/typedefs/places";
 import {STATE_BY_FIPS, STATE_NAME_BY_FIPS} from "@/typedefs/USState.ts";
 import {computed, onMounted, ref, watch} from "vue";
+import useConfigProvider from "@/providers/ConfigProvider/useConfigProvider.ts";
+import arrayPickRandom from "@/util/arrayPickRandom.ts";
 
 type Props = { place?: Place };
 const props = defineProps<Props>();
@@ -11,7 +13,22 @@ const channel = ref("");
 const connector = ref("");
 const placeBeforeTeam = ref(false);
 
-watch(() => props.place, () => {
+const placeGreeting = ref(["", ""]);
+watch(() => [props.place], () => {
+	placeGreeting.value = arrayPickRandom([
+		["Welcome to", ""],
+		["", "welcomes you"],
+		["Experience the splendor of", ""],
+		["Greetings from", ""],
+		["Experience lovely", ""],
+		["Explore", ""],
+		["", "is waiting for you"],
+		["There's plenty to see in", ""],
+		["Find your getaway in", ""],
+		["", "is calling"],
+		["Imagination awaits in", ""]
+	]);
+
 	isTV.value = Math.random() > 0.5;
 	if (isTV.value) {
 		channel.value = `TV ${Math.floor(Math.random() * 98) + 2}`;
@@ -26,23 +43,29 @@ watch(() => props.place, () => {
 		}
 	}
 
-	connector.value = [
+	connector.value = arrayPickRandom([
 		"",
 		"live from",
 		"coming to you from",
 		"in",
 		"from",
 		"broadcasting from",
-	].at(Math.floor(Math.random() * 6)) + " ";
+	]) + " ";
 
 	placeBeforeTeam.value = Math.random() > 0.5;
 }, {immediate: true});
+
+const {stateFIPSCode} = useConfigProvider();
+const sportsballs = ["⚽", "⚾", "🥎", "🏀", "🏐", "🏈", "🏉", "🏏", "🏑", "🏒", "🥍", "🥅"];
 
 </script>
 
 <template>
 	<template v-if="props.place">
-		<h3>{{ props.place.name }}, <span class="state-name">{{ STATE_BY_FIPS[props.place.fips] }}</span></h3>
+		<h3>
+			<span class="secondary-title-text">{{ placeGreeting[0] }}</span>
+			{{ props.place.name }}, {{ STATE_NAME_BY_FIPS[props.place.fips] }}{{placeGreeting[1] ? '' : '.'}}
+			<span class="secondary-title-text" v-if="placeGreeting[1]">{{ placeGreeting[1] }}.</span></h3>
 		<ul class="detail-list">
 			<li class="zips">
 				<ul>
@@ -59,6 +82,11 @@ watch(() => props.place, () => {
 					<li v-for="radio in props.place.callsigns">{{ radio }}</li>
 				</ul>
 			</li>
+			<li class="teams">
+				<ul>
+					<li v-for="team in props.place.teams" :style="{ '--sport-emoji': `'${arrayPickRandom(sportsballs)}'` }">{{ team.name }}</li>
+				</ul>
+			</li>
 		</ul>
 
 		<div class="blurb-icon">{{ isTV ? "📺" : "📻" }}</div>
@@ -69,7 +97,15 @@ watch(() => props.place, () => {
 			<template v-if="placeBeforeTeam">{{ props.place.name }}</template>
 			{{ props.place.teams[0]!.name }} {{ (props.place.teams[0]!.sport ?? "sports").toLowerCase() }}.
 		</div>
-
+	</template>
+	<template v-else>
+		<p class="placeholder">
+			<span class="secondary-title-text">{{ placeGreeting[0] }}</span>
+			Fake {{ STATE_NAME_BY_FIPS[stateFIPSCode] }}{{ placeGreeting[1] ? "" : "." }}
+			<span class="secondary-title-text" v-if="placeGreeting[1]">{{ placeGreeting[1] }}.</span>
+			{{ ' ' }}
+			<span class="secondary-title-text">Select a place name for more ideas.</span>
+		</p>
 	</template>
 </template>
 
@@ -80,13 +116,13 @@ watch(() => props.place, () => {
 	font-size: 1.2rem;
 }
 
-h3 {
+h3, .placeholder {
 	font-family: 'Caprasimo', sans-serif;
 	font-size: 3rem;
 	font-weight: 400;
 	margin: 0 0 0.5em 0;
 
-	.state-name {
+	.secondary-title-text {
 		-webkit-text-stroke: 2px currentColor;
 		-webkit-text-fill-color: transparent;
 	}
@@ -135,6 +171,10 @@ h3 {
 
 	&.callsigns li::before {
 		content: "📡";
+	}
+
+	&.teams li::before {
+		content: var(--sport-emoji);
 	}
 }
 </style>

@@ -3,7 +3,7 @@ import PlaceList from "@/components/PlaceList.vue";
 import GlobalUsStatePicker from "@/components/GlobalUsStatePicker.vue";
 import Bucket from "@/components/Bucket.vue";
 import type {Place} from "@/typedefs/places";
-import {onMounted, onUnmounted, ref, useTemplateRef} from "vue";
+import {onMounted, onUnmounted, ref, useTemplateRef, watch} from "vue";
 import Detail from "@/components/Detail.vue";
 import {Pane, Splitpanes} from "splitpanes";
 import "splitpanes/dist/splitpanes.css";
@@ -20,7 +20,7 @@ function resizeListener(e: MediaQueryListEvent) {
 	narrow.value = e.matches;
 }
 
-function setDetailItem(place: Place) {
+function setDetailItem(place: Place | null) {
 	detailItemRef.value = place;
 	if (narrow.value && detailPaneRef.value) {
 		detailPaneRef.value.scrollIntoView(true);
@@ -36,6 +36,10 @@ onUnmounted(() => {
 });
 
 const {stateFIPSCode} = useConfigProvider();
+
+watch(stateFIPSCode, () => {
+	setDetailItem(null);
+})
 </script>
 
 <template>
