@@ -9,6 +9,7 @@ const props = defineProps<Props>();
 const isTV = ref(false);
 const channel = ref("");
 const connector = ref("");
+const placeBeforeTeam = ref(false);
 
 watch(() => props.place, () => {
 	isTV.value = Math.random() > 0.5;
@@ -33,6 +34,8 @@ watch(() => props.place, () => {
 		"from",
 		"broadcasting from",
 	].at(Math.floor(Math.random() * 6)) + " ";
+
+	placeBeforeTeam.value = Math.random() > 0.5;
 }, {immediate: true});
 
 </script>
@@ -63,6 +66,7 @@ watch(() => props.place, () => {
 			You're {{ isTV ? "watching" : "listening to" }} {{ props.place.callsigns[0] }} {{ channel }} {{ connector }}
 			{{ props.place.name }}. We're {{ props.place.subregion }} {{ props.place.region }}'s home for news, weather,
 			and
+			<template v-if="placeBeforeTeam">{{ props.place.name }}</template>
 			{{ props.place.teams[0]!.name }} {{ (props.place.teams[0]!.sport ?? "sports").toLowerCase() }}.
 		</div>
 
