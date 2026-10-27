@@ -40,29 +40,30 @@ watch(stateFIPSCode, refresh, { immediate: true });
 </script>
 
 <template>
-	<ul class="placeNames">
+	<ul class="placeList">
 		<li :class="{placeName: true, isSettlement: result.isSettlement, isNotSettlement: !result.isSettlement}" v-for="(result, index) in placeNamesResult" :key="index">
 			<button @click="pick(result)">{{ result.featureName }}, {{ stateName }}</button>
 		</li>
 		<li class="keepDriving">
-			<button @click="refresh">Keep<br />Driving</button>
+			<button @click="refresh">Keep Driving</button>
 		</li>
 	</ul>
 </template>
 
 <style scoped>
 	@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
-	.placeNames {
+
+	.placeList {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
 		gap: 1rem;
 
 		list-style: none;
-		margin: 0;
-		padding: 0;
+		margin: 0 3rem 0 3rem;
+		padding: 0 0 1em 0;
 
-		font-family: "Overpass", sans-serif;
+		font-family: "Overpass", "Overpass ", sans-serif;
 		font-weight: 800;
 		font-size: 1.25rem;
 
@@ -76,7 +77,10 @@ watch(stateFIPSCode, refresh, { immediate: true });
 		}
 	}
 	.placeName, .keepDriving {
-		width: 10em;
+		flex-basis: 10em;
+		flex-grow: 1;
+		flex-shrink: 0;
+
 		margin: 0;
 		padding: 1em;
 		position: relative;
@@ -114,10 +118,30 @@ watch(stateFIPSCode, refresh, { immediate: true });
 	}
 
 	.keepDriving {
+		display: flex;
+		justify-content: center; /* Horizontal centering */
+		align-items: center;     /* Vertical centering */
+
 		background-color: #fa0;
 		border-color: #fa0;
 		color: #000;
 		text-transform: uppercase;
 		font-size: 1.25em;
+
+		button {
+			line-height: 1;
+			/* Just a tweak to center given this typeface */
+			margin: 0 0 -0.2em 0;
+			padding: 0;
+
+			&::before, &::after {
+				font-size: 1.5em;
+				content: "↑";
+				vertical-align: middle;
+			}
+
+			&::before { margin-right: 0.5em; }
+			&::after  { margin-left: 0.5em;  }
+		}
 	}
 </style>

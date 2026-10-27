@@ -39,18 +39,21 @@ watch(() => props.place, () => {
 
 <template>
 	<template v-if="props.place">
+		<h3>{{ props.place.name }}, <span class="state-name">{{ STATE_BY_FIPS[props.place.fips] }}</span></h3>
 		<ul class="detail-list">
-			<li class="name">{{ props.place.name }}, <span class="state-name">{{
-					STATE_BY_FIPS[props.place.fips]
-				}}</span></li>
 			<li class="zips">
-				<ul class="sublist zips">
+				<ul>
 					<li v-for="zip in props.place.zips">{{ String(zip.number).padStart(5, "0") }}</li>
 				</ul>
 			</li>
 			<li class="phones">
-				<ul class="sublist phones">
+				<ul>
 					<li v-for="phone in props.place.phone">({{ phone.npa }}) {{ phone.nxx }}-{{ phone.x }}xxx</li>
+				</ul>
+			</li>
+			<li class="callsigns">
+				<ul>
+					<li v-for="radio in props.place.callsigns">{{ radio }}</li>
 				</ul>
 			</li>
 		</ul>
@@ -58,7 +61,8 @@ watch(() => props.place, () => {
 		<div class="blurb-icon">{{ isTV ? "📺" : "📻" }}</div>
 		<div class="blurb">
 			You're {{ isTV ? "watching" : "listening to" }} {{ props.place.callsigns[0] }} {{ channel }} {{ connector }}
-			{{ props.place.name }}. We're {{ props.place.subregion }} {{ props.place.region }}'s home for news, weather, and
+			{{ props.place.name }}. We're {{ props.place.subregion }} {{ props.place.region }}'s home for news, weather,
+			and
 			{{ props.place.teams[0]!.name }} {{ (props.place.teams[0]!.sport ?? "sports").toLowerCase() }}.
 		</div>
 
@@ -72,10 +76,11 @@ watch(() => props.place, () => {
 	font-size: 1.2rem;
 }
 
-li.name {
+h3 {
 	font-family: 'Caprasimo', sans-serif;
 	font-size: 3rem;
-	margin: 0.5em 0;
+	font-weight: 400;
+	margin: 0 0 0.5em 0;
 
 	.state-name {
 		-webkit-text-stroke: 2px currentColor;
@@ -95,30 +100,37 @@ li.name {
 	float: left;
 }
 
-.sublist {
-	display: inline;
-	list-style: none;
-	padding: 0;
-	margin: 0;
+.detail-list > li {
+	& > ul {
+		display: block;
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1em 0;
 
-	li {
-		position: relative;
-		display: inline-block;
-		margin: 0 0.5em;
-		padding-left: 1.5em;
-		&::before {
-			position: absolute;
-			top: 0;
-			left: 0;
+		& > li {
+			position: relative;
+			display: inline-block;
+			margin: 0 0.5em;
+			padding-left: 1.5em;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
 		}
 	}
 
 	&.zips li::before {
 		content: "📫";
 	}
+
 	&.phones li::before {
 		content: "☎️";
 	}
 
+	&.callsigns li::before {
+		content: "📡";
+	}
 }
 </style>

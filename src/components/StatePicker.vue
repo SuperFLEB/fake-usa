@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<Props>(), { nothingText: "USA", hideNothi
 	.state-picker-wrapper {
 		border: 3px solid color-mix(in srgb, currentColor 15%, transparent);
 		border-radius: 0.5em;
-		padding: 0.25em;
+		padding: 0.125em 0.25em;
 
 		position: relative;
 		&::after {
